@@ -1,0 +1,84 @@
+/* .lista-de-gatos {
+  color: chocolate;
+} */
+img[alt] {
+  border-radius: 50%;
+}
+
+[type="radio"] {
+  margin: 5px;
+}
+
+[type="checkbox"] {
+  margin: 8px;
+}
+
+h2 {
+  font-size: 25px;
+  font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+  font-size: 15px;
+}
+
+/* li {
+  color: red;
+  font-size: 15px;
+}
+
+p,
+ul,
+ol {
+  font-size: 20px;
+} */
+
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.cat-img {
+  background-color: yellow;
+  padding: 25px;
+  margin: 25px;
+  /* width: 250px; */
+  border-width: 4px;
+  border-style: solid;
+  border-color: black;
+  /* border-radius: 50%; */
+}
+
+div {
+  background-color: red;
+}
+
+.list-container {
+  background-color: green;
+}
+
+#title-app-cat {
+  font-size: 30px;
+  color: green;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#cat-img {
+
+  border-radius: 50%;
+  border-width: 5px;
+  border-style: solid;
+  border-color: brown;
+}
+
+
+#lista-gatos-aman {
+  font-size: 15px;
+  color: blueviolet;
+}
+
+#lista-gatos-odian {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
