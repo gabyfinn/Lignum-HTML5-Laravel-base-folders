@@ -1,6 +1,30 @@
 /* .lista-de-gatos {
   color: chocolate;
 } */
+
+#contenedor-principal {
+  color: white;
+  padding: 5px;
+  font-size: 10px;
+  background-color: yellow;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.px {
+  background-color: red;
+  width: 200px;
+}
+
+.vw {
+  background-color: darkmagenta;
+  width: 20vw;
+}
+
+.em {
+  background-color: green;
+  width: 15em;
+}
+
 img[alt] {
   border-radius: 50%;
 }
@@ -50,9 +74,14 @@ img {
   /* border-radius: 50%; */
 }
 
-div {
-  background-color: red;
+.rectangulo {
+  padding: 5px;
+  margin: 5px;
 }
+
+/* div {
+  background-color: red;
+} */
 
 .list-container {
   background-color: green;
