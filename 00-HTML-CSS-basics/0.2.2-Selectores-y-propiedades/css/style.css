@@ -1,0 +1,22 @@
+html * {
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body > header {
+  background-color: gray;
+  text-align: center;
+}
+
+body > footer {
+  background-color: #006400;
+  text-align: center;
+}
+
+aside {
+  background-color: #8B008B;
+}
+
+nav {
+  background-color: #FF8C00;
+}
