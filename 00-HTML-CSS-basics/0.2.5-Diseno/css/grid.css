@@ -111,8 +111,8 @@ body {
     font-size: 5vw;
     padding: 5%;
   }
-  
-  h1{
+
+  h1 {
     display: none;
   }
 }
@@ -159,6 +159,8 @@ body {
     height: auto;
     position: relative;
     float: left;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
     /* width: 33.3%;
     height: auto;
     position: relative;
@@ -223,7 +225,14 @@ body {
 }
 
 .column.third:hover .screen {
-  opacity: 1
+  opacity: 1;
+
+
+}
+
+.column.third:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
 }
 
 .title {
