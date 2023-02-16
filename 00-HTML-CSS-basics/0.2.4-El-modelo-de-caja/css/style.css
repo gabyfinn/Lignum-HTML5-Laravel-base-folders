@@ -24,8 +24,8 @@ Imagine que hay una declaración como class=”no-puedo-usar-inline-styles” st
 
 * {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html * {
@@ -33,9 +33,19 @@ html * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 20px;
+  gap: 20px;
+}
+
 body>header {
   background-color: gray;
   text-align: center;
+ /*  grid-column: 2/3;
+  grid-row: 2; */
 }
 
 body>footer {
@@ -53,28 +63,56 @@ nav {
 
 .header {
   font-size: 46px;
+  /* grid-column-start:1;
+  grid-column-end: 4; */
+  grid-column: 1/4;
+  grid-row: 1;
 }
 
 .footer {
   font-size: 10px;
+  grid-column: 1/4;
+  grid-row: 3;
 }
 
 .content {
   font-size: 14px;
+  display: grid;
+  grid-template-rows: repeat(3,1fr);
+  grid-gap: 5px;
+  gap: 5px;
+}
+.content article {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.content header {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.content footer {
+  grid-column: 1;
+  grid-row: 3;
 }
 
 .navigation {
   font-size: 12px;
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .sidebar {
   font-size: 10px;
+  grid-column: 3;
+  grid-row: 2;
 }
 
 [class$="r"] {
   background-color: magenta;
 }
 
-[class*="a"]:not([class$="r"] ) {
+[class*="a"]:not([class$="r"]) {
   background-color: blue;
 }
