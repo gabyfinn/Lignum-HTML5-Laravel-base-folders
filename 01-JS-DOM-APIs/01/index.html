@@ -19,12 +19,17 @@
       <li></li>
     </ul>
   </nav>
-  <section id="hide">Hello World</section>
-  <section class="content">
-    <header>soy el header de la section</header>
-    <article>soy el article de la section</article>
-    <footer>soy el foot de la section</footer>
-  </section>
+
+  <main>
+
+    <section id="hide">Hello World</section>
+    <section class="content">
+      <header>soy el header de la section</header>
+      <article>soy el article de la section</article>
+      <footer>soy el foot de la section</footer>
+    </section>
+    <button onclick='chuckApiCall("hola mundo")'>soy un boton</button>
+  </main>
   <aside class="sidebar">
     Soy el aside
   </aside>
@@ -33,3 +38,11 @@
 </body>
 
 </html>
+
+<script>
+  function click2(msg) {
+    console.log(msg)
+    console.log("Realice un click");
+    alert("hiciste click en el boton");
+  }
+</script>
