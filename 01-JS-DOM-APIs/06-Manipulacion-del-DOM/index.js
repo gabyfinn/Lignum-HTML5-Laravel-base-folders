@@ -176,7 +176,6 @@ function reenderTable(matrix) {
       }else{
         let td = document.createElement('td');
         td.appendChild(document.createTextNode(matrix[i][j]));
-        // i == 1 && j == 1 ? td.setAttribute('rowSpan', '2') : null;
         tr.appendChild(td);
       }
     }
