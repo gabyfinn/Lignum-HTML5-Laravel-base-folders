@@ -151,3 +151,43 @@ const handleChange = (e) => {
     alert("No hay repos para filtrar")
   }
 }
+
+/* 6.Manipulación del DOM
+
+Escriba una función que tome como entrada una matriz de datos y genere una estructura DOM que represente una tabla. Adjúntelo al cuerpo de una página determinada.
+Pista: usa los metodos document.createElement, document.createTextNode, y Node.appendChild. */
+
+
+function reenderTable(matrix) {
+  console.log("entre al table")
+  let table = document.createElement('table');
+  table.style.width = '100%';
+  table.setAttribute('border', '1');
+  /*  r = table.insertRow(0);
+   c = r.insertCell() */
+  let body = document.body
+  console.log(body)
+  let tbody = document.createElement('tbody')
+  for (let i = 0; i < matrix.length; i++) {
+    let tr = document.createElement('tr');
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (i == matrix.length - 1 && j == matrix[i] - 1){
+        break;
+      }else{
+        let td = document.createElement('td');
+        td.appendChild(document.createTextNode(matrix[i][j]));
+        // i == 1 && j == 1 ? td.setAttribute('rowSpan', '2') : null;
+        tr.appendChild(td);
+      }
+    }
+    tbody.appendChild(tr);
+  }
+  table.appendChild(tbody);
+  body.appendChild(table)
+}
+
+let matriz = [[1,2,3],
+              [4,5,6],
+              [7,8,9],
+             [10,11,12,13]]
+reenderTable(matriz)
