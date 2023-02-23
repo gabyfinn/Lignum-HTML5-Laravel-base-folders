@@ -46,7 +46,7 @@ async function chuckApiCall() {
   // let conf = { method: "GET", url: "https://api.chucknorris.io/jokes/random" }
   try{
     
-    let conf = { method: "GET", url: "http://api.icndb.com/jokes/random" }
+    let conf = { method: "GET", url: API_JOKE_CHUCK }
     const response = await ajaxCall(conf);
     let element = document.getElementById('hide');
     element.innerHTML = response.value;

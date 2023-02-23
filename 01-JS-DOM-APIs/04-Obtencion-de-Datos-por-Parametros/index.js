@@ -1,7 +1,8 @@
-const API_JOKE_CHUCK="https://api.chucknorris.io/jokes/random";
+const API_JOKE_CHUCK = "https://api.chucknorris.io/jokes/random";
 const API_JOKE = 'http://api.icndb.com/jokes/random'
 const API_GITHUB = 'https://api.github.com/search/repositories';
 
+var repos = [];
 function fadeIn() {
   let element = document.getElementById('hide');
   element.style.transition = "opacity 5s linear 2s";
@@ -44,42 +45,30 @@ function click4(msg) {
 
 async function chuckApiCall() {
   // let conf = { method: "GET", url: "https://api.chucknorris.io/jokes/random" }
-  try{
-    
+  try {
+
     let conf = { method: "GET", url: "http://api.icndb.com/jokes/random" }
     const response = await ajaxCall(conf);
     let element = document.getElementById('hide');
     element.innerHTML = response.value;
   }
-  catch(error){
+  catch (error) {
     let element = document.getElementById('hide');
-    element.style.backgroundColor='red';
+    element.style.backgroundColor = 'red';
     alert('Error al obtener los datos')
     console.log(error)
   }
 
 }
 
-async function githubRepos(){
-  try{
-    let conf = { method: "GET", url: API_GITHUB+"?q=javascript" }
+async function githubRepos() {
+  try {
+    let conf = { method: "GET", url: API_GITHUB + "?q=javascript" }
     const response = await ajaxCall(conf);
-    let aside = document.getElementById('sidebar');
-    let aside2 = document.getElementsByClassName('sidebar');
-   
-    let ul = document.createElement('ul');
-    aside.appendChild(ul);
     console.log(response)
-    const repos = response.items;
-    repos?.map((repo)=>{
-      let li = document.createElement('li');
-      li.innerHTML = repo.full_name;
-      ul.appendChild(li)
-    })
-    // aside.appendChild(ul);
-    console.log(aside)
-    console.log(aside2.item(0))
-  }catch(error){
+    repos = response.items
+    reenderUl(repos)
+  } catch (error) {
     alert('Error al obtener los datos')
     console.log(error)
   }
@@ -107,7 +96,7 @@ async function ajaxCall(conf) {
         if (httpRequest.status === 200) {
           console.log(httpRequest.responseText);
           response = JSON.parse(httpRequest.responseText);
-          console.log(`La respuesta es ${response.value}`);
+          // console.log(`La respuesta es ${response.value}`);
           resolve(response);
         }
         else {
@@ -130,5 +119,35 @@ async function ajaxCall(conf) {
     httpRequest.send(null);
   }
   )
-  
+
+}
+
+function reenderUl(items) {
+  let aside = document.getElementById('sidebar');
+  let ul = document.getElementById('repos');
+  if (ul) {
+    ul.innerHTML = '';
+  } else {
+    ul = document.createElement('ul');
+    ul.setAttribute('id', 'repos')
+    aside.appendChild(ul);
+  }
+  // let ul = document.createElement('ul');
+  items?.map((repo) => {
+    let li = document.createElement('li');
+    li.innerHTML = repo.full_name;
+    ul.appendChild(li)
+  })
+}
+
+const handleChange = (e) => {
+  if (repos.length !== 0) {
+    let exp = new RegExp(e.toLowerCase());
+    let filterRepos = repos?.filter(e => exp.test(e.full_name.toLowerCase()))
+    console.log("imprimiendo el repo filtrado")
+    console.log(filterRepos)
+    filterRepos.length !== 0 ? reenderUl(filterRepos) : alert("No existe el repo buscado");
+  } else {
+    alert("No hay repos para filtrar")
+  }
 }
