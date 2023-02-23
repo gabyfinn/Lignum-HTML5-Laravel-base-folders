@@ -141,13 +141,20 @@ function reenderUl(items) {
 }
 
 const handleChange = (e) => {
-  if (repos.length !== 0) {
+  console.log("Entre");
+  if (repos.length !== 0 && e.length>=3) {
     let exp = new RegExp(e.toLowerCase());
     let filterRepos = repos?.filter(e => exp.test(e.full_name.toLowerCase()))
     console.log("imprimiendo el repo filtrado")
     console.log(filterRepos)
-    filterRepos.length !== 0 ? reenderUl(filterRepos) : alert("No existe el repo buscado");
+    filterRepos.length !== 0 ? reenderUl(filterRepos) : callAlert("No existe el repo buscado");
   } else {
-    alert("No hay repos para filtrar")
+    console.log("inside");
+    callAlert("No hay repos para filtrar");
+    reenderUl(repos);
   }
+}
+
+function callAlert(msg) {
+  alert(msg)
 }

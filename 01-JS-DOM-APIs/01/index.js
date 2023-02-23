@@ -75,7 +75,7 @@ async function ajaxCall(conf) {
   // oReq.addEventListener("abort", transferCanceled);
   return new Promise(function (resolve, reject) {
     let httpRequest = new XMLHttpRequest();
-    httpRequest.open(conf.method, conf.url);
+    httpRequest.open(conf.method, 'asdasdsasdasd', false);
     let response;
     httpRequest.onload = (e) => {
       if (httpRequest.readyState === 4) {
