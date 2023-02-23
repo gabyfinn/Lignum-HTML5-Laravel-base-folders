@@ -60,6 +60,31 @@ async function chuckApiCall() {
 
 }
 
+async function githubRepos(){
+  try{
+    let conf = { method: "GET", url: API_GITHUB+"?q=javascript" }
+    const response = await ajaxCall(conf);
+    let aside = document.getElementById('sidebar');
+    let aside2 = document.getElementsByClassName('sidebar');
+   
+    let ul = document.createElement('ul');
+    aside.appendChild(ul);
+    console.log(response)
+    const repos = response.items;
+    repos?.map((repo)=>{
+      let li = document.createElement('li');
+      li.innerHTML = repo.full_name;
+      ul.appendChild(li)
+    })
+    // aside.appendChild(ul);
+    console.log(aside)
+    console.log(aside2.item(0))
+  }catch(error){
+    alert('Error al obtener los datos')
+    console.log(error)
+  }
+}
+
 // fetch('https://api.chucknorris.io/jokes/random')
 //   .then((response) => response.json())
 //   .then((data) => console.log(data));
